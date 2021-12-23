@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { Lista } from './components/Lista';
+import Lista from './components/Lista';
 import ListaClase from './components/ListaClase';
+import Title from './Title';
 
 export function App() {
   const elementos1 = [
@@ -17,7 +18,8 @@ export function App() {
 
   return (
     <div>
-      <h1>Listas de tareas</h1>
+      <Title />
+      
       <ListaClase titulo="Tareas de la casa" icono="♥" elementos={elementos1} />
       <ListaClase
         titulo="Lista de la compra"
