@@ -8,6 +8,22 @@ import Header from './components/Header';
 
 import { MenuItems } from './data/MenuItems';
 
+function createMenuLinks() {
+  const listRoutes = [];
+  for (let i = 0; i < MenuItems.length; i++) {
+    listRoutes.push(
+      <li>
+        <Route
+          path={MenuItems[i].path}
+          exact
+          component={MenuItems[i].component}
+        />
+      </li>
+    );
+  }
+  return listRoutes;
+}
+
 export function App() {
   return (
     <Router>
@@ -17,12 +33,8 @@ export function App() {
       <Route path="/perfil" component={Perfil} />*/}
 
       <Header />
-      {MenuItems.map(function (item) {
-        return (
-          <li>
-            <Route to={item.path}>{item.title}</Route>
-          </li>
-        );
+      {MenuItems.map(function createRoute(item) {
+        return <Route path={item.path} exact component={item.component} />;
       })}
     </Router>
   );

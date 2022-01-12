@@ -12,7 +12,7 @@ class Header extends React.Component {
   render() {
     return (
       <nav>
-        <h1>Mi aplicación</h1>
+        <h2 >Mi aplicación</h2>
         {/*
         <ul>{this.createMenuLinks()}</ul>
         <ul>
