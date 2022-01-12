@@ -1,30 +1,30 @@
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import ComponenteListaClase from './ComponenteListaClase';
 
 class ListaClase extends React.Component {
   constructor(props) {
     super(props);
-    this.listaInicial = [];
-    this.listaComponentes = [];
+    this.titulo = props.titulo;
+    this.icono = props.icono;
+    this.state = {
+      listaComponentes: this.initList(props.elementos),
+    };
     this.valorTextInput = React.createRef();
     this.valorPrioritySelect = React.createRef();
-    this.state = {
-      listaComponentes: this.listaInicial,
-    };
   }
 
-  recorrer() {
-    if (this.props.elementos !== undefined) {
-      for (let i = 0; i < this.props.elementos.length; i++) {
-        this.listaInicial.push(
-          <ComponenteListaClase
-            done={this.props.elementos[i].done}
-            texto={this.props.elementos[i].texto}
-            prioridad={this.props.elementos[i].prioridad}
-          />
-        );
-      }
+  initList(elementos) {
+    const listaInicial = [];
+    for (let i = 0; i < elementos.length; i++) {
+      listaInicial.push(
+        <ComponenteListaClase
+          done={elementos[i].done}
+          texto={elementos[i].texto}
+          prioridad={elementos[i].prioridad}
+        />
+      );
     }
+    return listaInicial;
   }
 
   addElement() {
@@ -38,10 +38,9 @@ class ListaClase extends React.Component {
   }
 
   render() {
-    this.recorrer();
     return (
       <div>
-        {this.props.titulo} - {this.props.icono}
+        {this.titulo} - {this.icono}
         <ul>
           {this.state.listaComponentes}
           <li>
