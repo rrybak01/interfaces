@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { MenuItems } from '../data/MenuItems';
 
-import './header.css';
+import './Header.css';
 
 class Header extends React.Component {
   constructor(props) {
@@ -26,8 +26,8 @@ class Header extends React.Component {
           })}
         </ul>
         */}
-        <ul>
-          {/* Forma 3: map (función flecha) */}
+        {/*<ul>
+          {/* Forma 3: map (función flecha) /}
           {MenuItems.map((item) => {
             return (
               <li key={item.id}>
@@ -35,7 +35,7 @@ class Header extends React.Component {
               </li>
             );
           })}
-        </ul>
+        </ul>*/}
       </nav>
     );
   }
