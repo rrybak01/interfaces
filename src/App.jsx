@@ -34,7 +34,14 @@ export function App() {
 
       <Header />
       {MenuItems.map(function createRoute(item) {
-        return <Route path={item.path} exact component={item.component} />;
+        return (
+          <Route
+            key={item.id}
+            path={item.path}
+            exact
+            component={item.component}
+          />
+        );
       })}
     </Router>
   );
